@@ -5,7 +5,8 @@ class LogIn extends Component {
     state = {
         credentials: {
             username: '',
-            password: ''
+            password: '',
+            
         }
     }
 
@@ -21,18 +22,17 @@ class LogIn extends Component {
     login = event => {
         event.preventDefault()
 
-        
         axios
-        .post( 'https://best-friend-reminders.herokuapp.com/api/login', this.state.credentials)
-        
-        .then( res => {
-            this.props.history.push('.protectedRoute')
-            localStorage.setItem('token', res.token)
-        })
-        
-        .catch( err => {
-            console.log(err)
-        })
+            .post( 'https://best-friend-reminders.herokuapp.com/api/login', this.state.credentials)
+            
+            .then( res => {
+                this.props.history.push('.protectedRoute')
+                localStorage.setItem('token', res.token)
+            })
+            
+            .catch( err => {
+                console.log(err)
+            })
     }
 
 
