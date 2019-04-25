@@ -3,29 +3,58 @@ import axios from 'axios'
 
 class LogIn extends Component {
     state = {
-        username: '',
-        password: ''
+        credentials: {
+            username: '',
+            password: ''
+        }
     }
+
+    handleChange = event => {
+        this.setState({
+            credentials: {
+                ...this.state.credentials,
+                [event.target.name] : event.target.value
+            }
+        })
+    }
+
+    login = event => {
+        event.preventDefault()
+
+        
+        axios
+        .post( 'https://best-friend-reminders.herokuapp.com/api/login', this.state.credentials)
+        
+        .then( res => {
+            this.props.history.push('.protectedRoute')
+            localStorage.setItem('token', res.token)
+        })
+        
+        .catch( err => {
+            console.log(err)
+        })
+    }
+
 
     render() {
         return (
             <>
                 <h1>Log In</h1>
 
-                <form>
+                <form onSubmit={this.login}>
                     <input
                         type='string'
                         name='username'
                         placeholder='Username'
-                        value={this.state.username}
+                        value={this.state.credentials.username}
                         onChange={this.handleChange}
                     />
                 
                     <input 
-                        type='string'
+                        type='password'
                         name='password'
                         placeholder='Password'
-                        value={this.state.password}
+                        value={this.state.credentials.password}
                         onChange={this.handleChange}
                     /> 
                  
