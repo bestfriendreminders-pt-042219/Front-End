@@ -1,13 +1,14 @@
 import React from 'react';
 import { Form, Input, Button } from 'reactstrap';
+import axios from 'axios';
+
 
 
 class Signup extends React.Component {
     state = {
         user: {
-            name: '',
-            email: '',
-            phone: '',
+            // name: '',
+            // email: '',
             username: '',
             password: '',
         }
@@ -27,15 +28,22 @@ class Signup extends React.Component {
     signup = e => {
         console.log('Signing up')
         e.preventDefault();
-        localStorage.setItem('user')
+        console.log(this.state.user)
+        axios
+        .post('https://best-friend-reminders.herokuapp.com/api/register', this.state.user)
+        .then(res => {
+            localStorage.setItem({ 'token': res.data.token })
+            this.history.push('/friends')
+        })
+        .catch(err => {console.log(err)})
     }
 
     render() {
         return(
             <div className='SignupContainer'>
                 <h3>SignUp</h3>
-                    <Form>
-                        <Input 
+                    <Form onSubmit={this.signup}>
+                        {/* <Input 
                             type="string"
                             name="name"
                             placeholder="Name"
@@ -50,15 +58,7 @@ class Signup extends React.Component {
                             onChange={this.handleChange}
                             value={this.state.user.email}
                             required
-                        />
-                        <Input 
-                            type="tel"
-                            name="phone"
-                            placeholder="Phone Number"
-                            onChange={this.handleChange}
-                            value={this.state.user.phone}
-                            required
-                        />
+                        /> */}
                         <Input 
                             type="string"
                             name="username"
