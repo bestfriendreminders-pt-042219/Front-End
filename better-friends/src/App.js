@@ -8,6 +8,28 @@ import Friends from './components/Friends';
 import './App.css';
 
 class App extends React.Component {
+
+  componentDidMount(){
+    this.getMessages();
+  }
+  
+  getMessages = () => {
+    const token = localStorage.getItem("token")
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    }
+    if (!token) this.props.history.push("/login")
+    else {
+      axios
+      .get('https://best-friend-reminders.herokuapp.com/api/reminders/', requestOptions)
+      .then(res => this.setState({ friends: res.data }))
+      .catch(err => console.log(err));
+    }
+  }
+
+
   render() {
     return (
       <div className="App">
