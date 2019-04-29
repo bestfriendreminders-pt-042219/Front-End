@@ -7,8 +7,8 @@ import axios from 'axios';
 class Signup extends React.Component {
     state = {
         user: {
-            // name: '',
-            // email: '',
+            name: '',
+            email: '',
             username: '',
             password: '',
         }
@@ -43,7 +43,7 @@ class Signup extends React.Component {
             <div className='SignupContainer'>
                 <h3>SignUp</h3>
                     <Form onSubmit={this.signup}>
-                        {/* <Input 
+                        <Input 
                             type="string"
                             name="name"
                             placeholder="Name"
@@ -58,7 +58,7 @@ class Signup extends React.Component {
                             onChange={this.handleChange}
                             value={this.state.user.email}
                             required
-                        /> */}
+                        />
                         <Input 
                             type="string"
                             name="username"
