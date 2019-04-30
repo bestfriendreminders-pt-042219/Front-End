@@ -29,9 +29,11 @@ class FriendsContainer extends React.Component {
         }
       }
 
-      componentDidUpdate = () => {
-
-          this.getReminders()
+      componentDidUpdate = (prevProps) => {
+        if (this.props.id !== prevProps.id) {
+            // this.fetchData(this.props.id);
+            this.getReminders()
+          }
       }
 
       deleteReminder = (id) => {
@@ -50,6 +52,24 @@ class FriendsContainer extends React.Component {
         }
       }
 
+      updateReminder = (id) => {
+        const token = localStorage.getItem("token")
+        const requestOptions = {
+          headers: {
+            authorization: token
+          }
+        }
+        if (!token) this.props.history.push("/login")
+        else {
+          axios
+          .put(`https://best-friend-reminders.herokuapp.com/api/reminders/${id}`, requestOptions)
+        //   .then(res =>this.props.history('/Reminders'))
+          .then(res => this.setState({ friends: res.data }))
+
+          .catch(err => console.log(err));
+        }
+      }
+
 
 
 render () {
@@ -59,7 +79,7 @@ render () {
             {this.state.friends.map((friend) => {
                 return (
                     <div key={friend.id}>
-                        <FriendsMessages friend={friend} delete={this.deleteReminder}/>
+                        <FriendsMessages friend={friend} delete={this.deleteReminder} put={this.updateReminder}/>
                     </div>
                 )
             })}

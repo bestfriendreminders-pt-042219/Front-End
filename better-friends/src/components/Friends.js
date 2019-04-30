@@ -46,6 +46,28 @@ class Friends extends React.Component {
           this.props.history.push('/Reminders')
         }
     }
+    // updateReminder = (id) => {
+    //     const token = localStorage.getItem("token")
+    //     const requestOptions = {
+    //       headers: {
+    //         authorization: token
+    //       }
+    //     }
+    //     if (!token) this.props.history.push("/login")
+    //     else {
+    //       axios
+    //       .put(`https://best-friend-reminders.herokuapp.com/api/reminders/${id}`, requestOptions)
+    //       .then(res =>this.props.history('/Reminders'))
+    //       .catch(err => console.log(err));
+    //     }
+    //   }
+
+    initializeUpdate = e => {
+        e.preventDefault();
+        const [recipientName, message, sendDate,category,recipientEmail] = [this.state.recipientName, this.state.message, this.state.sendDate, this.state.category, this.state.recipientEmail];
+        this.setState({ editing: false });
+        this.props.updateReminder(this.props.id, { recipientName, message, sendDate,category,recipientEmail });
+      }
 
 
 // needs CDM to GET (api/reminders) with a array  of reminders to store in state in render display in state
@@ -56,7 +78,7 @@ class Friends extends React.Component {
             <FriendsSection>
                 <h1>Friends</h1>
                     <h3>Add Friend Event</h3>
-                    <Form onSubmit={this.addEventMessage}>
+                    <Form onSubmit={this.initializeUpdate}>
                         <Label>Event Type: {''}
                             <Select 
                             name="category"
@@ -111,6 +133,7 @@ class Friends extends React.Component {
                             />
                         </Label>
                         <Button type="submit">Submit</Button>
+                        
                     </Form>
                 <FriendsContainer message={this.state.eventMessage}/>
             </FriendsSection>
