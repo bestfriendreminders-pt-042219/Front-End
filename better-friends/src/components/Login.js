@@ -26,7 +26,7 @@ class LogIn extends Component {
 
            .then( res => {
                localStorage.setItem('token', res.data.token)
-               this.props.history.push('/friendsContainer')
+               this.props.history.push('/Reminders')
            })
 
            .catch( err => {

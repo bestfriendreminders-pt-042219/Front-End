@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -63,11 +63,18 @@ class App extends React.Component {
               Login
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/friends" >
+              Add a Reminder
+            </NavLink>
+          </li>
         </ul>
         <Route exact path='/' component={Home}/>
         <Route path='/login' component={Login}/>
         <Route path='/Register' component={Register}/>
         <Route path='/friends' component={Friends}/>
+        <Route path='/Reminders' component={FriendsContainer}/>
+
         {/* <FriendsContainer messageData={
             this.state.message
           }/> */}
