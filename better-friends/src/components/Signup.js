@@ -43,23 +43,7 @@ class Signup extends React.Component {
             <div className='SignupContainer'>
                 <h3>SignUp</h3>
                     <Form onSubmit={this.signup}>
-                        <Input 
-                            type="string"
-                            name="name"
-                            placeholder="Name"
-                            onChange={this.handleChange}
-                            value={this.state.user.name}
-                            required
-                        />
-                        <Input 
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            onChange={this.handleChange}
-                            value={this.state.user.email}
-                            required
-                        />
-                        <Input 
+                    <Input 
                             type="string"
                             name="username"
                             placeholder="Username"
@@ -75,7 +59,7 @@ class Signup extends React.Component {
                             value={this.state.user.password}
                             required
                         />
-                        <Button>Signup</Button>
+                        <Button type='submit'>Signup</Button>
                     </Form>
             </div>
         )
