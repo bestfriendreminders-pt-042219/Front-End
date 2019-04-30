@@ -40,18 +40,23 @@ class Friends extends React.Component {
           axios
           .post('https://best-friend-reminders.herokuapp.com/api/reminders/',this.state, requestOptions)
           .then(res => console.log(res.data))
-          .catch(err => console.log(err));
+          .catch(err => console.log(err.message));
           this.props.history.push('/Reminders')
         }
     }
 
     initializeUpdate = e => {
         e.preventDefault();
-        const [recipientName, message, sendDate,category,recipientEmail] = [this.state.recipientName, this.state.message, this.state.sendDate, this.state.category, this.state.recipientEmail];
+        const {recipientName, message, sendDate,category,recipientEmail} = this.state;
         this.setState({ editing: false });
         this.props.updateReminder(this.props.id, { recipientName, message, sendDate,category,recipientEmail });
+        console.log([recipientName])
+        // console.log(recipientName)
+        // console.log(message)
+        // console.log(sendDate)
+        // console.log(category)
+        // console.log(recipientEmail)
       }
-
 
 // needs CDM to GET (api/reminders) with a array  of reminders to store in state in render display in state
 // separate this file into a messageForm component to display if you want to create a new message for a friend

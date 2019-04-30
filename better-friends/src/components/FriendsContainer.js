@@ -64,13 +64,23 @@ class FriendsContainer extends React.Component {
         }
         if (!token) this.props.history.push("/login")
         else {
+            console.log(token)
+            // const info = this.state
+            console.log(requestOptions)
           axios
           .put(`https://best-friend-reminders.herokuapp.com/api/reminders/${id}`, info, requestOptions)
         //   .then(res =>this.props.history('/Reminders'))
-          .then(res => this.setState({ friends: res.data }))
+        //   .then(res => this.setState({ friends: res.data }))
+          .then(res =>  console.log(res.data))
 
           .catch(err => console.log(err));
         }
+        // console.log(requestOptions)
+        // console.log(id)
+        // console.log(this.state)
+
+     
+
       }
 
       
