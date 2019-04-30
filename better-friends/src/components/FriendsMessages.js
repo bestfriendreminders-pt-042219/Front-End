@@ -6,7 +6,7 @@ const FriendsMessages = props => {
 
     return (
         <div>
-            <h2>You're all set to be a better friend!</h2>
+            <h2>Friends Messages</h2>
                 <div>
                     <p>Friend: {props.friend.recipientName}</p>
                     <p>Message: {props.friend.message}</p>

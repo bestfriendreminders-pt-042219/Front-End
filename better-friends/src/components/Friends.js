@@ -28,8 +28,6 @@ class Friends extends React.Component {
     addEventMessage = e => {
         console.log('New event add', this.state);
         e.preventDefault();
-  
-
         const token = localStorage.getItem("token")
         const requestOptions = {
           headers: {
@@ -46,21 +44,6 @@ class Friends extends React.Component {
           this.props.history.push('/Reminders')
         }
     }
-    // updateReminder = (id) => {
-    //     const token = localStorage.getItem("token")
-    //     const requestOptions = {
-    //       headers: {
-    //         authorization: token
-    //       }
-    //     }
-    //     if (!token) this.props.history.push("/login")
-    //     else {
-    //       axios
-    //       .put(`https://best-friend-reminders.herokuapp.com/api/reminders/${id}`, requestOptions)
-    //       .then(res =>this.props.history('/Reminders'))
-    //       .catch(err => console.log(err));
-    //     }
-    //   }
 
     initializeUpdate = e => {
         e.preventDefault();
@@ -78,7 +61,10 @@ class Friends extends React.Component {
             <FriendsSection>
                 <h1>Friends</h1>
                     <h3>Add Friend Event</h3>
-                    <Form onSubmit={this.initializeUpdate}>
+                    <Form onSubmit={this.addEventMessage}>
+                    {/* <Form onSumit={this.updateReminder}>
+
+                    </Form> */}
                         <Label>Event Type: {''}
                             <Select 
                             name="category"
