@@ -3,31 +3,45 @@ import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
-import Signup from './components/Signup';
+import Register from './components/Register';
 import Friends from './components/Friends';
+import FriendsContainer from './components/FriendsContainer';
+
 import './App.css';
 
 class App extends React.Component {
 
-  componentDidMount(){
-    this.getMessages();
-  }
+  // componentDidMount(){
+  //   // this.getMessages();
+  //   console.log('Mounting...', this.state.messages)
+  //   const userId = localStorage.getItem('userId')
+  //   if(userId) {
+  //     axios
+  //       .get(`https://best-friend-reminders.herokuapp.com/:${userId}`)
+  //       .then(res => {
+  //         console.log(res.data)
+  //         this.setState({
+  //           messages: res.data
+  //         })
+  //       })
+  //     }
+  // }
   
-  getMessages = () => {
-    const token = localStorage.getItem("token")
-    const requestOptions = {
-      headers: {
-        authorization: token
-      }
-    }
-    if (!token) this.props.history.push("/login")
-    else {
-      axios
-      .get('https://best-friend-reminders.herokuapp.com/api/reminders/', requestOptions)
-      .then(res => this.setState({ friends: res.data }))
-      .catch(err => console.log(err));
-    }
-  }
+  // getMessages = () => {
+  //   const token = localStorage.getItem("token")
+  //   const requestOptions = {
+  //     headers: {
+  //       authorization: token
+  //     }
+  //   }
+  //   if (!token) this.props.history.push("/login")
+  //   else {
+  //     axios
+  //     .get('https://best-friend-reminders.herokuapp.com/api/reminders/', requestOptions)
+  //     .then(res => this.setState({ friends: res.data }))
+  //     .catch(err => console.log(err));
+  //   }
+  // }
 
 
   render() {
@@ -40,7 +54,7 @@ class App extends React.Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/signup" >
+            <NavLink to="/Register" >
               Sign Up
             </NavLink>
           </li>
@@ -52,8 +66,11 @@ class App extends React.Component {
         </ul>
         <Route exact path='/' component={Home}/>
         <Route path='/login' component={Login}/>
-        <Route path='/signup' component={Signup}/>
+        <Route path='/Register' component={Register}/>
         <Route path='/friends' component={Friends}/>
+        {/* <FriendsContainer messageData={
+            this.state.message
+          }/> */}
       </div>
     );
   }

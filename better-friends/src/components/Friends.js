@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import FriendsMessages from './FriendsMessages';
+import FriendsContainer from './FriendsContainer';
 
 class Friends extends React.Component {
     state = {
@@ -13,7 +13,8 @@ class Friends extends React.Component {
         date: '',
         sent: false
     }]
-}
+    }
+
     handleChange = e => {
         console.log('Changing');
         this.setState({
@@ -46,12 +47,12 @@ class Friends extends React.Component {
 
     render() {
         return (
-            <div className='friendsContainer'>
+            <FriendsSection>
                 <h1>Friends</h1>
                     <h3>Add Friend Event</h3>
                     <Form onSubmit={this.addEventMessage}>
                         <Label>Event Type: {''}
-                            <Select name="Choose an event reminder">
+                            <Select name="category">
                                 <Option value="null">--</Option>
                                 <Option value="anniversary">Anniversary</Option>
                                 <Option value="birthday">Birthday</Option>
@@ -92,13 +93,45 @@ class Friends extends React.Component {
                         </Label>
                         <Button type="submit">Submit</Button>
                     </Form>
-                <FriendsMessages message={this.state.eventMessage}/>
-            </div>
+                <FriendsContainer message={this.state.eventMessage}/>
+            </FriendsSection>
         )
     }
 }
 
 export default withRouter(Friends);
 
+const FriendsSection = styled.div `
+`
+const Form = styled.form `
+margin: 50px;
+`
+const Label = styled.label `
+display: flex;
+`
+
+const Select = styled.select `
+margin: 10px auto;
+`
+
+const Option = styled.option `
+`
+
+const Textarea = styled.textarea `
+    margin: 10px auto;
+    `
+
+const Input = styled.input `
+margin: 10px auto;
+`
 
 // export friends wrapped in the HOC
+
+// recipientName	String	Name of the person the message will be sent to.
+// recipientEmail	String	Email of the message recipient.
+// message	String	The text of the message.
+// category	String	The category that the reminder belongs to.
+// sendDate	date	The date the message is scheduled to be sent.
+
+// WHEN DONE - Should get status of 201 with the ID of the reminder just created
+// 
