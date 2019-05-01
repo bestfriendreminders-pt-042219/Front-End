@@ -2,6 +2,8 @@
 
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
 
 class FriendsMessages extends React.Component {
   state = {
@@ -18,9 +20,9 @@ class FriendsMessages extends React.Component {
       this.setState({ [key]: this.props.friend[key] });
     }
   }
+  
   initializeUpdate = (e, id) => {
     e.preventDefault();
-    // e.preventDefault(); remember there is no event to prevent here because we're not passing this function
     const {
       recipientName,
       message,
@@ -85,50 +87,125 @@ class FriendsMessages extends React.Component {
 
   render() {
     return (
+        <MesagesContainer>
       <div>
-        <h2>Friends Messages</h2>
+      {/* <Label>{''}
+      {this.state.recipientName}
+      </Label> */}
+        {/* <h2>Friends Messages</h2> */}
+
         {this.state.updating ? (
           <form onSubmit={e => this.initializeUpdate(e, this.state.id)}>
-            <input
+            
+            <Label>Friends Event: {''}
+            <Select 
+                name="category"
+                value={this.state.category}
+                onChange={this.onChange}
+                >
+                <Option value="null">--</Option>
+                <Option value="Anniversary">Anniversary</Option>
+                <Option value="birthday">Birthday</Option>
+                <Option value="retirement">Retirement</Option>
+                <Option value="babyShower">Baby Shower</Option>
+            </Select>
+            </Label>
+
+            <Label>Friend: {''}
+            <Input
               type="text"
               placeholder="Recipient Name"
               name="recipientName"
               onChange={this.onChange}
               value={this.state.recipientName}
             />
-            <input
+            </Label>
+
+            <Label>When To Send: {''}
+                <Input
+                    type="date"
+                    name="sendDate"
+                    placeholder="Date"
+                    onChange={this.onChange}
+                    value={this.state.sendDate}
+                    required="required"
+                />
+            </Label>
+
+            <Label>Message For Friend: {''}
+            <Input
               type="text"
               placeholder="message"
               name="message"
               onChange={this.onChange}
               value={this.state.message}
             />
-            <input
-              type="text"
-              placeholder="category"
-              name="category"
-              onChange={this.onChange}
-              value={this.state.category}
+            </Label>
+
+            <Label>Friends Email: {''}
+            <Input
+            type="text"
+            name="Friends Email"
+            placeholder="email"
+            onChange={this.onChange}
+            value={this.state.recipientEmail}
+            required="required"
             />
+            </Label>
+
             <button>Update</button>
           </form>
         ) : (
           <div>
             <p>Friend: {this.state.recipientName}</p>
+            <p>Event: {this.state.category}</p>
             <p>Message: {this.state.message}</p>
-            <p>Sending Date: {this.state.sendDate}</p>
+            <p>Sending on: {this.state.sendDate}</p>
             <button onClick={() => this.setState({ updating: true })}>
               Edit
             </button>
             <button onClick={() => this.props.delete(this.props.friend.id)}>
+            {/* <button onClick={this.props.deleteReminder}> */}
+
               Delete
             </button>
             {/* <button class="edit"onClick={() => this.setState({ editing: true })}>Edit</button> */}
           </div>
         )}
       </div>
+      </MesagesContainer>
     );
   }
 }
 
+
+const MesagesContainer = styled.div `
+border: 1px solid red;
+`
+const Form = styled.form `
+margin: 50px;
+`
+const Input = styled.input `
+margin: 10px auto;
+border: 1px solid red;
+`
+
+
+
+
+
 export default FriendsMessages;
+
+
+
+
+const Select = styled.select `
+margin: 10px auto;
+`
+
+const Option = styled.option `
+`
+
+const Label = styled.label `
+display: flex;
+`

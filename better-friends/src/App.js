@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Friends from './components/Friends';
 import FriendsContainer from './components/FriendsContainer';
+import styled from 'styled-components';
+
 
 import './App.css';
 
@@ -13,7 +15,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         <ul className="navBar">
           <li>
             <NavLink exact to="/" >
@@ -41,15 +43,23 @@ class App extends React.Component {
         <Route path='/Register' component={Register}/>
         <Route path='/friends' component={Friends}/>
         <Route path='/Reminders' render={ (props) => <FriendsContainer/>}/>
-        
 
-        {/* <FriendsContainer messageData={
-            this.state.message
-          }/> */}
-      </div>
+      </AppContainer>
     );
   }
 }
+
+const AppContainer = styled.div `
+border: 1px solid red;
+background-color: #282c34;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-size: calc(10px + 2vmin);
+color: white;
+`
 
 export default App;
 
