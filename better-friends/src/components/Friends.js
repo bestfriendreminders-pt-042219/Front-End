@@ -45,38 +45,38 @@ class Friends extends React.Component {
         }
     }
 
-    initializeUpdate = (id) => {
+    // initializeUpdate = (id) => {
 
-        // e.preventDefault(); remember there is no event to prevent here because we're not passing this function
-        const {recipientName, message, sendDate,category,recipientEmail} = this.state;
-        this.setState({ editing: false });
-        const token = localStorage.getItem("token")
-        const requestOptions = {
-          headers: {
-            authorization: token
-          }
-        }
-        if (!token) this.props.history.push("/login")
-        else {
-            console.log(token)
-            const info = {
-                recipientName, message, sendDate,category,recipientEmail
-            }
-            for (let key in info) {
-                if (!info[key]) 
-                console.log('Missing a key')
-                return
-            }
-          axios
-          .put(`https://best-friend-reminders.herokuapp.com/api/reminder/${id}`, info, requestOptions)
-          .then(res =>  console.log(res.data))
-        .catch(function (res) {
-            console.log(res);
-            // res();
-          });
-        }
+    //     // e.preventDefault(); remember there is no event to prevent here because we're not passing this function
+    //     const {recipientName, message, sendDate,category,recipientEmail} = this.state;
+    //     this.setState({ editing: false });
+    //     const token = localStorage.getItem("token")
+    //     const requestOptions = {
+    //       headers: {
+    //         authorization: token
+    //       }
+    //     }
+    //     if (!token) this.props.history.push("/login")
+    //     else {
+    //         console.log(token)
+    //         const info = {
+    //             recipientName, message, sendDate,category,recipientEmail
+    //         }
+    //         for (let key in info) {
+    //             if (!info[key]) 
+    //             console.log('Missing a key')
+    //             return
+    //         }
+    //       axios
+    //       .put(`https://best-friend-reminders.herokuapp.com/api/reminder/${id}`, info, requestOptions)
+    //       .then(res =>  console.log(res.data))
+    //     .catch(function (res) {
+    //         console.log(res);
+    //         // res();
+    //       });
+    //     }
 
-      }
+    //   }
 
 // needs CDM to GET (api/reminders) with a array  of reminders to store in state in render display in state
 // separate this file into a messageForm component to display if you want to create a new message for a friend
@@ -146,7 +146,7 @@ class Friends extends React.Component {
                         <Button type="submit">Submit</Button>
                         
                     </Form>
-                <FriendsContainer message={this.state.eventMessage} update={this.initializeUpdate}/>
+                {/* <FriendsContainer message={this.state.eventMessage} update={this.initializeUpdate}/> */}
                 
             </FriendsSection>
         )

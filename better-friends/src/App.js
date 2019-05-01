@@ -40,7 +40,8 @@ class App extends React.Component {
         <Route path='/login' component={Login}/>
         <Route path='/Register' component={Register}/>
         <Route path='/friends' component={Friends}/>
-        <Route path='/Reminders' component={FriendsContainer}/>
+        <Route path='/Reminders' render={ (props) => <FriendsContainer/>}/>
+        
 
         {/* <FriendsContainer messageData={
             this.state.message
