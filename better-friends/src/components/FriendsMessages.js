@@ -3,7 +3,6 @@
 import React from 'react';
 
 const FriendsMessages = props => {
-
     return (
         <div>
             <h2>Friends Messages</h2>
@@ -12,7 +11,7 @@ const FriendsMessages = props => {
                     <p>Message: {props.friend.message}</p>
                     <p>Sending Date: {props.friend.sendDate}</p>
                     <button onClick = {() => props.delete(props.friend.id)}>Delete</button>
-                    <button onClick = {() => props.put(props.friend.id, props.friend.info)}>Update</button>
+                    <button onClick = {() => props.put(props.friend.id)}>Update</button>
                     {/* <button class="edit"onClick={() => this.setState({ editing: true })}>Edit</button> */}
 
                 </div>
