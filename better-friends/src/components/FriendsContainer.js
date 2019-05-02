@@ -45,17 +45,17 @@ class FriendsContainer extends React.Component {
                 axios
                 .get(`https://best-friend-reminders.herokuapp.com/api/reminders/${id}`, requestOptions)
             )
-            .then(final => {
-                console.log(final.data);
-                this.setState({
-                    updating: false,
-                    recipientName: final.data.recipientName,
-                    message: final.data.message,
-                    sendDate: final.data.sendDate,
-                    category: final.data.category,
-                    recipientEmail: final.data.recipientEmail,
-                });
-                })
+            // .then(final => {
+            //     console.log(final.data);
+            //     this.setState({
+            //         updating: false,
+            //         recipientName: final.data.recipientName,
+            //         message: final.data.message,
+            //         sendDate: final.data.sendDate,
+            //         category: final.data.category,
+            //         recipientEmail: final.data.recipientEmail,
+            //     });
+            //     })
             .catch(err => console.log(err));
         }
     }
@@ -81,11 +81,8 @@ class FriendsContainer extends React.Component {
             }
     }
 
-    
-
-
 render () {
-    return(
+    return( 
         <div>
             {this.state.friends.map((friend) => {
                 return (
