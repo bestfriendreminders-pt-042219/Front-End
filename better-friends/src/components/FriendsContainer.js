@@ -43,7 +43,7 @@ class FriendsContainer extends React.Component {
             .delete(`https://best-friend-reminders.herokuapp.com/api/reminders/${id}`, requestOptions)
             .then(res =>
                 axios
-                .get(`https://best-friend-reminders.herokuapp.com/api/reminders/${id}`, requestOptions)
+                .get(`https://best-friend-reminders.herokuapp.com/api/reminders/`, requestOptions)
             )
             .then(final => {
                 console.log(final.data);

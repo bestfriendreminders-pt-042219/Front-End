@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Route, NavLink, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
-import Register from './components/Register';
+import Signup from './components/Signup';
 import Friends from './components/Friends';
 import FriendsContainer from './components/FriendsContainer';
 import styled from 'styled-components';
@@ -40,7 +40,7 @@ class App extends React.Component {
         </ul>
         <Route exact path='/' component={Home}/>
         <Route path='/login' component={Login}/>
-        <Route path='/Register' component={Register}/>
+        <Route path='/Register' component={Signup}/>
         <Route path='/friends' component={Friends}/>
         <Route path='/Reminders' render={ (props) => <FriendsContainer/>}/>
 
