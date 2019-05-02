@@ -3,6 +3,7 @@
 import React from 'react';
 import FriendsMessages from './FriendsMessages';
 import axios from 'axios';
+import styled from 'styled-components';
 
 class FriendsContainer extends React.Component {
     state = {
@@ -86,7 +87,7 @@ class FriendsContainer extends React.Component {
 
 render () {
     return(
-        <div>
+        <MessageContainer>
             {this.state.friends.map((friend) => {
                 return (
                     <div key={friend.id}>
@@ -98,10 +99,17 @@ render () {
                     </div>
                 )
             })}
-        </div>
+        </MessageContainer>
         )
     }
 }
 
 export default FriendsContainer;
 
+const MessageContainer = styled.div `
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+border: 1px solid green;
+width: 100%;
+`

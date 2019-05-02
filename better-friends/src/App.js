@@ -7,9 +7,10 @@ import Signup from './components/Signup';
 import Friends from './components/Friends';
 import FriendsContainer from './components/FriendsContainer';
 import styled from 'styled-components';
-
+import StickyFooter from 'react-sticky-footer';
 
 import './App.css';
+
 
 class App extends React.Component {
 
@@ -43,6 +44,23 @@ class App extends React.Component {
         <Route path='/Register' component={Signup}/>
         <Route path='/friends' component={Friends}/>
         <Route path='/Reminders' render={ (props) => <FriendsContainer/>}/>
+
+        {/* <StickyFooter
+    bottomThreshold={50}
+    normalStyles={{
+    backgroundColor: "#532516",
+    padding: "2rem",
+    borderTop: '8px solid #090707',
+    height: '100px',
+    width: '90%'
+    }}
+    stickyStyles={{
+    backgroundColor: "rgba(255,255,255,.8)",
+    padding: "2rem"
+    }}
+>
+    Add any footer markup here
+</StickyFooter> */}
 
       </AppContainer>
     );
