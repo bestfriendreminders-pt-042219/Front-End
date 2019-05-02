@@ -43,6 +43,7 @@ class Signup extends React.Component {
             <div className='RegisterContainer'>
                 <h3>Create an account</h3>
                     <Form onSubmit={this.handlRegister}>
+                
                         <Input 
                             type="string"
                             name="username"
