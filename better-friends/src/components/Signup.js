@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 
-class Register extends React.Component {
+class Signup extends React.Component {
     state = {
         user: {
             username: '',
@@ -84,5 +84,5 @@ class Register extends React.Component {
 
 
 
-export default Register;
+export default Signup;
 // changed from signup to register to stay in line with backend
