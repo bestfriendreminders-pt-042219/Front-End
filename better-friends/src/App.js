@@ -1,38 +1,21 @@
 import React from 'react';
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
-import Signup from './components/Signup';
+import Register from './components/Register';
 import Friends from './components/Friends';
+import FriendsContainer from './components/FriendsContainer';
+import styled from 'styled-components';
+
+
 import './App.css';
 
 class App extends React.Component {
 
-  componentDidMount(){
-    this.getMessages();
-  }
-  
-  getMessages = () => {
-    const token = localStorage.getItem("token")
-    const requestOptions = {
-      headers: {
-        authorization: token
-      }
-    }
-    if (!token) this.props.history.push("/login")
-    else {
-      axios
-      .get('https://best-friend-reminders.herokuapp.com/api/reminders/', requestOptions)
-      .then(res => this.setState({ friends: res.data }))
-      .catch(err => console.log(err));
-    }
-  }
-
-
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         <ul className="navBar">
           <li>
             <NavLink exact to="/" >
@@ -40,7 +23,7 @@ class App extends React.Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/signup" >
+            <NavLink to="/Register" >
               Sign Up
             </NavLink>
           </li>
@@ -49,15 +32,34 @@ class App extends React.Component {
               Login
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/friends" >
+              Add a Reminder
+            </NavLink>
+          </li>
         </ul>
         <Route exact path='/' component={Home}/>
         <Route path='/login' component={Login}/>
-        <Route path='/signup' component={Signup}/>
+        <Route path='/Register' component={Register}/>
         <Route path='/friends' component={Friends}/>
-      </div>
+        <Route path='/Reminders' render={ (props) => <FriendsContainer/>}/>
+
+      </AppContainer>
     );
   }
 }
+
+const AppContainer = styled.div `
+border: 1px solid red;
+background-color: #282c34;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-size: calc(10px + 2vmin);
+color: white;
+`
 
 export default App;
 
