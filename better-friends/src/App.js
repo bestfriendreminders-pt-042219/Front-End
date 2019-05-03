@@ -23,7 +23,7 @@ class App extends React.Component {
               Home
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/Register" >
               Sign Up
             </NavLink>
@@ -32,7 +32,7 @@ class App extends React.Component {
             <NavLink to="/login" >
               Login
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to="/friends" >
               Add a Reminder

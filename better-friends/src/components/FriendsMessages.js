@@ -172,16 +172,17 @@ class FriendsMessages extends React.Component {
   }
 }
 
+export default FriendsMessages;
 
 const MesagesContainer = styled.div `
 border: 1px solid red;
 background-image: url(${blankDay});
-background-position-x: center;
-background-position-y: -30px;
-background-size: 150%;
+background-position-x: 50%;
+background-position-y: 40%;
+background-size: 150% 150%;
 background-repeat: no-repeat;
-width: 400px;
-height: 400px;
+width: 70%;
+height: auto;
 
 
 `
@@ -199,17 +200,18 @@ border: 1px solid red;
 
 const TextContainer = styled.div`
 border: 1px solid purple;
-font-size: 1.5rem;
-font-size: 1.5rem;
-padding-left: 15px;
+font-size: 80%;
+padding-left: 10%;
+word-break: break-all;
 position: relative;
-overflow: hidden;
-padding-top: 40px;
+// overflow: scroll;
+// padding-top: 40px;
+// margin: 10px;
 `
 
 
 
-export default FriendsMessages;
+
 
 
 

@@ -108,8 +108,13 @@ export default FriendsContainer;
 
 const MessageContainer = styled.div `
 display: flex;
-justify-content: space-evenly;
+justify-content: space-around;
 align-items: center;
 border: 1px solid green;
 width: 100%;
+height: 500px;
+@media (max-width: 500px) {
+      flex-direction: column;
+  }
 `
+
