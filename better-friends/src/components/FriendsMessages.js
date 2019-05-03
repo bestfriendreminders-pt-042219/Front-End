@@ -1,6 +1,7 @@
 // Shows a single message
 
 import React from 'react';
+import moment from 'moment';
 import axios from 'axios';
 import styled from 'styled-components';
 import blankDay from '../img/blank-day.png';
@@ -88,10 +89,15 @@ class FriendsMessages extends React.Component {
 
   render() {
     return (
+      // const dateToFormat = new Date('1976-04-19T12:59-0500');
+      //       <Moment date={dateToFormat} />
 
-        <MesagesContainer>
 
+      <MesagesContainer>
+      {/* This jv function is for Updating/ Adding a new Message ELSE what to disaply to be mapped over
+      in FriendsContainer*/}
         {this.state.updating ? (
+          // If State is updating, then it goes into this submit Form
           <form onSubmit={e => this.initializeUpdate(e, this.state.id)}>
             
             <Label>Friends Event: {''}
@@ -101,10 +107,10 @@ class FriendsMessages extends React.Component {
                 onChange={this.onChange}
                 >
                 <Option value="null">--</Option>
-                <Option value="birthday">Birthday</Option>
+                <Option value="Birthday">Birthday</Option>
                 <Option value="Anniversary">Anniversary</Option>
-                <Option value="retirement">Retirement</Option>
-                <Option value="babyShower">Baby Shower</Option>
+                <Option value="Retirement">Retirement</Option>
+                <Option value="BabyShower">Baby Shower</Option>
             </Select>
             </Label>
 
@@ -126,6 +132,7 @@ class FriendsMessages extends React.Component {
                     onChange={this.onChange}
                     value={this.state.sendDate}
                     required="required"
+                    // format='MM/DD/YYYY'
                 />
             </Label>
 
@@ -153,18 +160,21 @@ class FriendsMessages extends React.Component {
             <button>Update</button>
           </form>
         ) : (
+          
           <TextContainer>
-            <h4>Friend: {this.state.recipientName}</h4>
-            <p>Event: {this.state.category}</p>
-            <p>Message: {this.state.message}</p>
-            <p>Sending on: {this.state.sendDate}</p>
-            <button onClick={() => this.setState({ updating: true })}>
+            <h4>{this.state.recipientName}</h4>
+            <Btn>
+              <button onClick={() => this.setState({ updating: true })}>
               Edit
             </button>
             <button onClick={() => this.props.delete(this.props.friend.id)}>
-
               Delete
             </button>
+            </Btn>
+            {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)}
+            <p>{moment(this.state.sendDate).format('ddd MMM DD YYYY')}</p>
+            <p>Message: {this.state.message}</p>
+            
           </TextContainer>
         )}
       </MesagesContainer>
@@ -173,47 +183,6 @@ class FriendsMessages extends React.Component {
 }
 
 export default FriendsMessages;
-
-const MesagesContainer = styled.div `
-border: 1px solid red;
-background-image: url(${blankDay});
-background-position-x: 50%;
-background-position-y: 40%;
-background-size: 150% 150%;
-background-repeat: no-repeat;
-width: 70%;
-height: auto;
-
-
-`
-const p = styled.form`
-font: 5px;
-border: 1px solid red;
-`
-const Form = styled.form `
-margin: 50px;
-`
-const Input = styled.input `
-margin: 10px auto;
-border: 1px solid red;
-`
-
-const TextContainer = styled.div`
-border: 1px solid purple;
-font-size: 80%;
-padding-left: 10%;
-word-break: break-all;
-position: relative;
-// overflow: scroll;
-// padding-top: 40px;
-// margin: 10px;
-`
-
-
-
-
-
-
 
 
 const Select = styled.select `
@@ -227,28 +196,58 @@ const Label = styled.label `
 display: flex;
 `
 
+const Form = styled.form `
+margin: 50px;
+`
+const Input = styled.input `
+margin: 10px auto;
+border: 1px solid red;
+`
 
-/**
- * Very simple drop-in replacement for <Image> which supports nesting views.
- *
- * ```ReactNativeWebPlayer
- * import React, { Component } from 'react';
- * import { AppRegistry, View, ImageBackground, Text } from 'react-native';
- *
- * class DisplayAnImageBackground extends Component {
- *   render() {
- *     return (
- *       <ImageBackground
- *         style={{width: 50, height: 50}}
- *         source={{uri: 'https://facebook.github.io/react-native/img/opengraph.png'}}
- *       >
- *         <Text>React</Text>
- *       </ImageBackground>
- *     );
- *   }
- * }
- *
- * // App registration and rendering
- * AppRegistry.registerComponent('DisplayAnImageBackground', () => DisplayAnImageBackground);
- * ```
- */
+const MesagesContainer = styled.div `
+// border: 1px solid red;
+background-image: url(${blankDay});
+background-position-x: 50%;
+background-position-y: 40%;
+background-size: 150% 150%;
+background-repeat: no-repeat;
+width: 320px;
+height: 320px;
+margin: 10px;
+border-radius: 10%;
+`
+const TextContainer = styled.div`
+// border: 1px solid purple;
+font-size: 20px;
+padding-top: 1%;
+padding-right: 5%;
+padding-left: 5%;
+
+word-break: break-all;
+position: relative;
+text-align: center;
+// overflow: scroll;
+// padding-top: 40px;
+// margin: 10px;
+`
+
+const Btn = styled.form`
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+width: 100%;
+button {
+  border-radius: 50%;
+  background-color: #532516;
+  // opacity: .7;
+  border-color: #975D41;
+  color: #D4D4D4;
+
+}
+`
+
+
+
+
+
+
