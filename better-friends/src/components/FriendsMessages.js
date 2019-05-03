@@ -1,8 +1,10 @@
 // Shows a single message
 
 import React from 'react';
+import moment from 'moment';
 import axios from 'axios';
 import styled from 'styled-components';
+import blankDay from '../img/blank-day.png';
 
 
 class FriendsMessages extends React.Component {
@@ -72,11 +74,11 @@ class FriendsMessages extends React.Component {
             sendDate: final.data.sendDate,
             category: final.data.category,
             recipientEmail: final.data.recipientEmail,
+            img: ''
           });
         })
         .catch(function(res) {
           console.log(res.message);
-          // res();
         });
     }
   };
@@ -87,14 +89,15 @@ class FriendsMessages extends React.Component {
 
   render() {
     return (
-        <MesagesContainer>
-      <div>
-      {/* <Label>{''}
-      {this.state.recipientName}
-      </Label> */}
-        {/* <h2>Friends Messages</h2> */}
+      // const dateToFormat = new Date('1976-04-19T12:59-0500');
+      //       <Moment date={dateToFormat} />
 
+
+      <MesagesContainer>
+      {/* This jv function is for Updating/ Adding a new Message ELSE what to disaply to be mapped over
+      in FriendsContainer*/}
         {this.state.updating ? (
+          // If State is updating, then it goes into this submit Form
           <form onSubmit={e => this.initializeUpdate(e, this.state.id)}>
             
             <Label>Friends Event: {''}
@@ -104,10 +107,10 @@ class FriendsMessages extends React.Component {
                 onChange={this.onChange}
                 >
                 <Option value="null">--</Option>
+                <Option value="Birthday">Birthday</Option>
                 <Option value="Anniversary">Anniversary</Option>
-                <Option value="birthday">Birthday</Option>
-                <Option value="retirement">Retirement</Option>
-                <Option value="babyShower">Baby Shower</Option>
+                <Option value="Retirement">Retirement</Option>
+                <Option value="BabyShower">Baby Shower</Option>
             </Select>
             </Label>
 
@@ -129,6 +132,7 @@ class FriendsMessages extends React.Component {
                     onChange={this.onChange}
                     value={this.state.sendDate}
                     required="required"
+                    // format='MM/DD/YYYY'
                 />
             </Label>
 
@@ -156,47 +160,29 @@ class FriendsMessages extends React.Component {
             <button>Update</button>
           </form>
         ) : (
-          <div>
-            <p>Friend: {this.state.recipientName}</p>
-            <p>Event: {this.state.category}</p>
-            <p>Message: {this.state.message}</p>
-            <p>Sending on: {this.state.sendDate}</p>
-            <button onClick={() => this.setState({ updating: true })}>
+          
+          <TextContainer>
+            <h4>{this.state.recipientName}</h4>
+            <Btn>
+              <button onClick={() => this.setState({ updating: true })}>
               Edit
             </button>
             <button onClick={() => this.props.delete(this.props.friend.id)}>
-            {/* <button onClick={this.props.deleteReminder}> */}
-
               Delete
             </button>
-            {/* <button class="edit"onClick={() => this.setState({ editing: true })}>Edit</button> */}
-          </div>
+            </Btn>
+            {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)}
+            <p>{moment(this.state.sendDate).format('ddd MMM DD YYYY')}</p>
+            <p>Message: {this.state.message}</p>
+            
+          </TextContainer>
         )}
-      </div>
       </MesagesContainer>
     );
   }
 }
 
-
-const MesagesContainer = styled.div `
-border: 1px solid red;
-`
-const Form = styled.form `
-margin: 50px;
-`
-const Input = styled.input `
-margin: 10px auto;
-border: 1px solid red;
-`
-
-
-
-
-
 export default FriendsMessages;
-
-
 
 
 const Select = styled.select `
@@ -209,3 +195,59 @@ const Option = styled.option `
 const Label = styled.label `
 display: flex;
 `
+
+const Form = styled.form `
+margin: 50px;
+`
+const Input = styled.input `
+margin: 10px auto;
+border: 1px solid red;
+`
+
+const MesagesContainer = styled.div `
+// border: 1px solid red;
+background-image: url(${blankDay});
+background-position-x: 50%;
+background-position-y: 40%;
+background-size: 150% 150%;
+background-repeat: no-repeat;
+width: 320px;
+height: 320px;
+margin: 10px;
+border-radius: 10%;
+`
+const TextContainer = styled.div`
+// border: 1px solid purple;
+font-size: 20px;
+padding-top: 1%;
+padding-right: 5%;
+padding-left: 5%;
+
+word-break: break-all;
+position: relative;
+text-align: center;
+// overflow: scroll;
+// padding-top: 40px;
+// margin: 10px;
+`
+
+const Btn = styled.form`
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+width: 100%;
+button {
+  border-radius: 50%;
+  background-color: #532516;
+  // opacity: .7;
+  border-color: #975D41;
+  color: #D4D4D4;
+
+}
+`
+
+
+
+
+
+

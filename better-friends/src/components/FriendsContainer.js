@@ -1,8 +1,10 @@
-// PURPOSE: Display Messages, update, delete
+// PURPOSE: Display Messages by mapping over FriendsMessages, update, delete
 
 import React from 'react';
+
 import FriendsMessages from './FriendsMessages';
 import axios from 'axios';
+import styled from 'styled-components';
 
 class FriendsContainer extends React.Component {
     state = {
@@ -61,11 +63,6 @@ class FriendsContainer extends React.Component {
     }
 
     componentDidUpdate = (prevProps) => {
-        // console.log('componentDidUpdate');
-        // if (this.props.id !== prevProps.id) {
-        //     this.getReminders()
-        // }
-        // return;
         const token = localStorage.getItem("token")
         const requestOptions = {
             headers: {
@@ -86,7 +83,7 @@ class FriendsContainer extends React.Component {
 
 render () {
     return(
-        <div>
+        <MessageContainer>
             {this.state.friends.map((friend) => {
                 return (
                     <div key={friend.id}>
@@ -98,10 +95,29 @@ render () {
                     </div>
                 )
             })}
-        </div>
+        </MessageContainer>
         )
     }
 }
 
 export default FriendsContainer;
+
+const MessageContainer = styled.div `
+// border: 1px solid green;
+box-sizing: border-box
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-wrap: wrap;
+width: 100%;
+height: auto;
+@media (max-width: 900px) {
+    flex-wrap: wrap;
+}
+@media (max-width: 500px) {
+      flex-direction: column;
+    height: auto;
+
+  }
+`
 
