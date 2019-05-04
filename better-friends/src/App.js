@@ -46,11 +46,11 @@ class App extends React.Component {
           </li>
         </ul>
         </TopBar>
-        <Route exact path='/' component={Home}/>
+        <Route exact path='/' component={FriendsContainer}/>
         <Route path='/login' component={Login}/>
         <Route path='/Register' component={Signup}/>
         <Route path='/friends' component={Friends}/>
-        <Route path='/Reminders' render={ (props) => <FriendsContainer/>}/>
+        <Route path='/Reminders' component= {FriendsContainer}/>
 
         <StickyFooter
     bottomThreshold={50}
