@@ -49,37 +49,36 @@ class Friends extends React.Component {
             <div className='friendsContainer'>
                 <h1>Friends</h1>
                     <h3>Add Friend Event</h3>
-                    <Form onSubmit={this.addEventMessage}>
-                        <Label>Event Type: {''}
-                            <Select name="Choose an event reminder">
-                                <Option value="null">--</Option>
-                                <Option value="anniversary">Anniversary</Option>
-                                <Option value="birthday">Birthday</Option>
-                                <Option value="retirement">Retirement</Option>
-                                <Option value="babyShower">Baby Shower</Option>
-
-                            </Select>
-                        </Label>
-                        <Label>Name: {''}
-                            <Input 
+                    <form onSubmit={this.addEventMessage}>
+                        <label>Event Type: {''}
+                            <select name="Choose an event reminder">
+                                <option value="null">--</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="retirement">Retirement</option>
+                                <option value="babyShower">Baby Shower</option>
+                            </select>
+                        </label>
+                        <label>Name: {''}
+                            <input 
                                 type="string"
                                 name="person"
                                 placeholder="Name"
                                 onChange={this.handleChange}
                                 value={this.state.person}
                             />
-                        </Label>
-                        <Label>Send Date: {''}
-                            <Input
+                        </label>
+                        <label>Send Date: {''}
+                            <input
                                 type="date"
                                 name="date"
                                 placeholder="Date"
                                 onChange={this.handleChange}
                                 value={this.state.date}
                             />
-                        </Label>
-                        <Label>Message: {''}
-                            <Textarea 
+                        </label>
+                        <label>Message: {''}
+                            <textarea 
                                 type="string"
                                 name="message"
                                 maxLength="250"
@@ -89,9 +88,9 @@ class Friends extends React.Component {
                                 onChange={this.handleChange}
                                 value={this.state.message}
                             />
-                        </Label>
+                        </label>
                         <Button type="submit">Submit</Button>
-                    </Form>
+                    </form>
                 <FriendsMessages message={this.state.eventMessage}/>
             </div>
         )
