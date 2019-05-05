@@ -9,6 +9,8 @@ class Signup extends React.Component {
         user: {
             username: '',
             password: '',
+            name: '',
+            email: '',
         }
     }
 
@@ -23,7 +25,7 @@ class Signup extends React.Component {
         }));
     }
 
-    signup = e => {
+    handlRegister = e => {
         console.log('Signing up')
         e.preventDefault();
         console.log(this.state.user)
@@ -38,10 +40,10 @@ class Signup extends React.Component {
 
     render() {
         return(
-            <div className='SignupContainer'>
+            <div className='RegisterContainer'>
                 <h3>Create an account</h3>
-                    <Form onSubmit={this.signup}>
-
+                    <Form onSubmit={this.handlRegister}>
+                
                         <Input 
                             type="string"
                             name="username"
@@ -58,7 +60,23 @@ class Signup extends React.Component {
                             value={this.state.user.password}
                             required
                         />
-                        <Button type='submit'>Signup</Button>
+                        <Input 
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            onChange={this.handleChange}
+                            value={this.state.user.password}
+                            required
+                        />
+                        <Input 
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            onChange={this.handleChange}
+                            value={this.state.user.password}
+                            required
+                        />
+                        <Button type='submit'>Register</Button>
                     </Form>
             </div>
         )
@@ -68,3 +86,4 @@ class Signup extends React.Component {
 
 
 export default Signup;
+// changed from signup to register to stay in line with backend

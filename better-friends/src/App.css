@@ -1,33 +1,41 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #975D41;
+  /* background-image: url(./img/blank-day.png); */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-direction: row;
+  border: 
+}
+
+.MessagesContainer {
+  background-image: url(./img/blank-day.png);
+}
+
+.p {
+  overflow: hidden;
+}
+
+
+.navBar {
+
+  width: 100%;
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+ ul {
+  list-style: none;
+}
+
+.navBar a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Mobile - less than 400px; */
+/* @mobile: ~"(max-width: 500px)";
+@pad: ~"(max-width: 800px)";
+@padLarge: ~"(max-width: 1040px)"; */
