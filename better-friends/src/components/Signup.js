@@ -61,19 +61,19 @@ class Signup extends React.Component {
                             required
                         />
                         <Input 
-                            type="password"
-                            name="password"
-                            placeholder="Password"
+                            type="string"
+                            name="name"
+                            placeholder="Name"
                             onChange={this.handleChange}
-                            value={this.state.user.password}
+                            value={this.state.user.name}
                             required
                         />
                         <Input 
-                            type="password"
-                            name="password"
-                            placeholder="Password"
+                            type="email"
+                            name="email"
+                            placeholder="Email"
                             onChange={this.handleChange}
-                            value={this.state.user.password}
+                            value={this.state.user.email}
                             required
                         />
                         <Button type='submit'>Register</Button>

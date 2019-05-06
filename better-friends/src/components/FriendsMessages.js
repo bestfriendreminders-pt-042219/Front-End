@@ -83,6 +83,8 @@ class FriendsMessages extends React.Component {
     }
   };
 
+  
+
   onChange = ev => {
     this.setState({ [ev.target.name]: ev.target.value });
   };
@@ -113,7 +115,7 @@ class FriendsMessages extends React.Component {
                 <Option value="Anniversary">Anniversary</Option>
                 <Option value="A Special Day">A Special Day</Option>
                 <Option value="Text Notification">Text Notification</Option>
-                <Option value="BabyShower">Baby Shower</Option>
+                <Option value="Baby Shower">Baby Shower</Option>
             </Select>
             </Label>
 
@@ -165,7 +167,14 @@ class FriendsMessages extends React.Component {
         ) : (
           
           <TextContainer>
-            <h4>{this.state.recipientName}</h4>
+            <h4>
+            {this.state.recipientName}
+             
+             <br></br>
+            {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)}
+            
+            </h4>
+            
             <Btn>
               <button onClick={() => this.setState({ updating: true })}>
               Edit
@@ -174,7 +183,7 @@ class FriendsMessages extends React.Component {
               Delete
             </button>
             </Btn>
-            {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)}
+            {/* {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)} */}
             <p>{moment(this.state.sendDate).format('ddd MMM DD YYYY')}</p>
             <p>Message: {this.state.message}</p>
             
@@ -222,10 +231,8 @@ border-radius: 10%;
 const TextContainer = styled.div`
 // border: 1px solid purple;
 font-size: 20px;
-padding-top: 1%;
 padding-right: 5%;
 padding-left: 5%;
-
 word-break: break-all;
 position: relative;
 text-align: center;

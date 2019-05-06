@@ -1,8 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import { Route, NavLink, Link } from 'react-router-dom';
-import Home from './components/Home';
 import Login from './components/Login';
+import LogOut from './components/LogOut'
 import Signup from './components/Signup';
 import Friends from './components/Friends';
 import FriendsContainer from './components/FriendsContainer';
@@ -11,7 +10,7 @@ import StickyFooter from 'react-sticky-footer';
 import twitter from './img/twitter-brown.png';
 import instagram from './img/instagram-brown.png';
 import facebook from './img/facebook-brown.png';
-// import git from './img/github-brown.png';
+import git from './img/github-brown.png';
 
 
 import './App.css';
@@ -27,8 +26,7 @@ class App extends React.Component {
               BETTER FRIENDS REMINDERS
             </h1>
         <ul className="navBar">
-        <li>
-          </li>
+        
           <li>
             <NavLink exact to="/Reminders" >
               Home
@@ -38,10 +36,20 @@ class App extends React.Component {
             <a href="https://bestfriendreminders-pt-042219.github.io/UI-Robert/about.html">
             About Us
             </a>
-            {/* <NavLink exact to="https://bestfriendreminders-pt-042219.github.io/UI-Robert/about.html" >
-              About Us
-            </NavLink> */}
           </li>
+
+
+          <li>
+          <NavLink exact to='/' >
+             Home
+           </NavLink>
+         </li>
+
+         <li>
+           <LogOut />
+         </li>
+        
+
         </ul>
         </TopBar>
         <h2>Your calendar at your fingertips!</h2>
@@ -53,35 +61,36 @@ class App extends React.Component {
 
         <Route exact path='/' component={Login}/>
         <Route path='/login' component={Login}/>
-        <Route path='/Register' component={Signup}/>
+        <Route path='/signup' component={Signup}/>
         <Route path='/friends' component={Friends}/>
         <Route path='/Reminders' component= {FriendsContainer}/>
-        {/* <Route path='/Reminders' render={ (props) => <FriendsContainer/>}/> */}
 
             <NavLink to="/friends" >
               Add a Reminder
             </NavLink>
 
-        <StickyFooter
+    <StickyFooter
+    width={'98%'}
     bottomThreshold={100}
     normalStyles={{
-    backgroundColor: "#532516",
-    padding: "2rem",
-    borderTop: '8px solid #090707',
-    height: '50px',
-    width: '100%'
-    }}
+      display: 'flex',
+      justifyContent: 'space-between',
+      backgroundColor: "#532516",
+      borderTop: '8px solid #090707',
+      width: '100%',
+      height: '50px'
+      }}
     stickyStyles={{
-    // backgroundColor: "rgba(255,255,255,.8)",
-    // padding: "2rem"
-    display: 'none'
+      display: 'none',
     }}
 >
-Such a long spaced out long long long footer does ti take up the screen
-    <img src='img/twitter-brown.png'></img>,
-    <img src="img/instagram-brown.png"></img>,
-    <img src="img/facebook-brown.png"></img>,
-    {/* <img src="img/github-brown.png"></img> */}
+    <FooterImages>
+    <img src={twitter} style={{width: '40px',height: '40px'}}></img>
+    <img src={instagram} style={{width: '35px',height: '35px '}}></img>
+    <img src={facebook} style={{width: '30px',height: '30px'}}></img>
+    <img src={git} style={{width: '30px',height: '30px'}}></img>
+    </FooterImages>
+
 </StickyFooter>
 
       </AppContainer>
@@ -89,10 +98,13 @@ Such a long spaced out long long long footer does ti take up the screen
   }
 }
 
-// const StickyFooter = styled.div`
-// width: 100%;
-// image: url(${twitter});
-// `
+const FooterImages = styled.div `
+border: 1px solid red;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 99%;
+`
 
 const AppContainer = styled.div `
 border: 1px solid red;
@@ -123,6 +135,7 @@ h2 {
   letter-spacing: 10px;
   text-shadow: 1px 1px #A5A4A2;
 }
+
 `
 
 const TopBar = styled.div`
