@@ -61,10 +61,13 @@ class Friends extends React.Component {
                             onChange={this.handleChange}
                             >
                                 <Option value="null">--</Option>
-                                <Option value="anniversary">Anniversary</Option>
-                                <Option value="birthday">Birthday</Option>
-                                <Option value="retirement">Retirement</Option>
-                                <Option value="babyShower">Baby Shower</Option>
+                                <Option value="Wife's Birthday">Wife's Birthday</Option>
+                                <Option value="Husband's Birthday">Husband's Birthday</Option>
+                                <Option value="Birthday">Birthday</Option>
+                                <Option value="Anniversary">Anniversary</Option>
+                                <Option value="A Special Day">A Special Day</Option>
+                                <Option value="Text Notification">Text Notification</Option>
+                                <Option value="BabyShower">Baby Shower</Option>
 
                             </Select>
                         </Label>
