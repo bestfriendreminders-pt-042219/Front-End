@@ -8,6 +8,11 @@ import Friends from './components/Friends';
 import FriendsContainer from './components/FriendsContainer';
 import styled from 'styled-components';
 import StickyFooter from 'react-sticky-footer';
+import twitter from './img/twitter-brown.png';
+import instagram from './img/instagram-brown.png';
+import facebook from './img/facebook-brown.png';
+// import git from './img/github-brown.png';
+
 
 import './App.css';
 
@@ -25,54 +30,69 @@ class App extends React.Component {
         <li>
           </li>
           <li>
-            <NavLink exact to="/" >
+            <NavLink exact to="/Reminders" >
               Home
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/Register" >
-              Sign Up
-            </NavLink>
-          </li>
           <li>
-            <NavLink to="/login" >
-              Login
-            </NavLink>
-          </li> */}
-          <li>
-            <NavLink to="/friends" >
-              Add a Reminder
-            </NavLink>
+            <a href="https://bestfriendreminders-pt-042219.github.io/UI-Robert/about.html">
+            About Us
+            </a>
+            {/* <NavLink exact to="https://bestfriendreminders-pt-042219.github.io/UI-Robert/about.html" >
+              About Us
+            </NavLink> */}
           </li>
         </ul>
         </TopBar>
-        <Route exact path='/' component={FriendsContainer}/>
+        <h2>Your calendar at your fingertips!</h2>
+
+      
+            <NavLink to="/friends" >
+              Add a Reminder
+            </NavLink>
+
+        <Route exact path='/' component={Login}/>
         <Route path='/login' component={Login}/>
         <Route path='/Register' component={Signup}/>
         <Route path='/friends' component={Friends}/>
         <Route path='/Reminders' component= {FriendsContainer}/>
+        {/* <Route path='/Reminders' render={ (props) => <FriendsContainer/>}/> */}
+
+            <NavLink to="/friends" >
+              Add a Reminder
+            </NavLink>
 
         <StickyFooter
-    bottomThreshold={50}
+    bottomThreshold={100}
     normalStyles={{
     backgroundColor: "#532516",
     padding: "2rem",
     borderTop: '8px solid #090707',
-    height: '100px',
-    width: '90%'
+    height: '50px',
+    width: '100%'
     }}
     stickyStyles={{
-    backgroundColor: "rgba(255,255,255,.8)",
-    padding: "2rem"
+    // backgroundColor: "rgba(255,255,255,.8)",
+    // padding: "2rem"
+    display: 'none'
     }}
 >
-    Add any footer markup here
+Such a long spaced out long long long footer does ti take up the screen
+    <img src='img/twitter-brown.png'></img>,
+    <img src="img/instagram-brown.png"></img>,
+    <img src="img/facebook-brown.png"></img>,
+    {/* <img src="img/github-brown.png"></img> */}
 </StickyFooter>
 
       </AppContainer>
     );
   }
 }
+
+// const StickyFooter = styled.div`
+// width: 100%;
+// image: url(${twitter});
+// `
 
 const AppContainer = styled.div `
 border: 1px solid red;
@@ -84,6 +104,25 @@ align-items: center;
 justify-content: flex-star;
 font-size: calc(8px + 2vmin);
 color: white;
+a {
+  text-decoration: none;
+  color: #D4D4D4;
+  font-size: xx-large;
+}
+h1 {
+  color: #D4D4D4;
+  margin: 5px 0 5px 10px;
+  font-size: 2.4em;
+  font-family: 'Comic Sans MS';
+  text-shadow: 2px 2px #090707;
+}
+h2 {
+  color: black;
+  font-size: 1em;
+  font-weight: ;
+  letter-spacing: 10px;
+  text-shadow: 1px 1px #A5A4A2;
+}
 `
 
 const TopBar = styled.div`
@@ -93,6 +132,7 @@ font-color: #D4D4D4;
 width: 100%;
 height: auto;
 `
+
 
 export default App;
 

@@ -121,3 +121,4 @@ height: auto;
   }
 `
 
+// TODO - logout with localStorage.remove, redirect to login component

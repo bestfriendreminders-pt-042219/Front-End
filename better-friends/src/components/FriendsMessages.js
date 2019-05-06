@@ -107,9 +107,12 @@ class FriendsMessages extends React.Component {
                 onChange={this.onChange}
                 >
                 <Option value="null">--</Option>
+                <Option value="Wife's Birthday">Wife's Birthday</Option>
+                <Option value="Husband's Birthday">Husband's Birthday</Option>
                 <Option value="Birthday">Birthday</Option>
                 <Option value="Anniversary">Anniversary</Option>
-                <Option value="Retirement">Retirement</Option>
+                <Option value="A Special Day">A Special Day</Option>
+                <Option value="Text Notification">Text Notification</Option>
                 <Option value="BabyShower">Baby Shower</Option>
             </Select>
             </Label>
