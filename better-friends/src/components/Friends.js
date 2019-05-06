@@ -67,7 +67,7 @@ class Friends extends React.Component {
                                 <Option value="Anniversary">Anniversary</Option>
                                 <Option value="A Special Day">A Special Day</Option>
                                 <Option value="Text Notification">Text Notification</Option>
-                                <Option value="BabyShower">Baby Shower</Option>
+                                <Option value="Baby Shower">Baby Shower</Option>
 
                             </Select>
                         </Label>

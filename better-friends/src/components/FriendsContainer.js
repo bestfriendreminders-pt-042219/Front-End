@@ -32,6 +32,7 @@ class FriendsContainer extends React.Component {
             }
     }
 
+
     deleteReminder = (id) => {
         const token = localStorage.getItem("token")
         const requestOptions = {
