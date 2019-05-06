@@ -112,6 +112,9 @@ align-items: center;
 flex-wrap: wrap;
 width: 100%;
 height: auto;
+&:hover {
+    opacity: 1.1;
+  }
 @media (max-width: 900px) {
     flex-wrap: wrap;
 }
