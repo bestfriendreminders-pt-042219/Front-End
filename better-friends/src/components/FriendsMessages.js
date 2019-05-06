@@ -227,6 +227,9 @@ width: 320px;
 height: 320px;
 margin: 10px;
 border-radius: 10%;
+&:hover {
+  backGround: #532520;
+}
 `
 const TextContainer = styled.div`
 // border: 1px solid purple;
