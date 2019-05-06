@@ -1,9 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-import { Route, NavLink, Link } from 'react-router-dom';
-import Home from './components/Home';
+//import axios from 'axios';
+import { Route, NavLink } from 'react-router-dom';
+//import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import LogOut from './components/LogOut'
 import Friends from './components/Friends';
 import FriendsContainer from './components/FriendsContainer';
 import styled from 'styled-components';
@@ -28,6 +29,9 @@ class App extends React.Component {
             <NavLink exact to="/" >
               Home
             </NavLink>
+          </li>
+          <li>
+            <LogOut />
           </li>
           {/* <li>
             <NavLink to="/Register" >

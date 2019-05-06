@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 class LogIn extends Component {
@@ -63,7 +63,7 @@ class LogIn extends Component {
 
                <p>
                    Need to create an account? 
-                    <Link to="/signup" >
+                    <Link to="/Register" >
                         Sign Up
                     </Link>
                 </p>
