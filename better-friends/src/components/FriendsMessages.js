@@ -184,7 +184,7 @@ class FriendsMessages extends React.Component {
             </button>
             </Btn>
             {/* {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)} */}
-            <p>{moment(this.state.sendDate).format('ddd MMM DD YYYY')}</p>
+            <p>{moment(this.state.sendDate).format('dddd, MMM DD YYYY')}</p>
             <p>Message: {this.state.message}</p>
             
           </TextContainer>
@@ -247,9 +247,9 @@ flex-direction: row;
 justify-content: space-around;
 width: 100%;
 button {
-  border-radius: 50%;
+  border-radius: 20%;
   background-color: #532516;
-  // opacity: .7;
+  opacity: 0.7;
   border-color: #975D41;
   color: #D4D4D4;
 
