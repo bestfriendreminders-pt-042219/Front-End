@@ -32,6 +32,7 @@ class FriendsContainer extends React.Component {
             }
     }
 
+
     deleteReminder = (id) => {
         const token = localStorage.getItem("token")
         const requestOptions = {
@@ -111,6 +112,9 @@ align-items: center;
 flex-wrap: wrap;
 width: 100%;
 height: auto;
+&:hover {
+    opacity: 1.1;
+  }
 @media (max-width: 900px) {
     flex-wrap: wrap;
 }
@@ -121,3 +125,4 @@ height: auto;
   }
 `
 
+// TODO - logout with localStorage.remove, redirect to login component

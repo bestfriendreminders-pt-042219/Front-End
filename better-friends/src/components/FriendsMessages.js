@@ -83,6 +83,8 @@ class FriendsMessages extends React.Component {
     }
   };
 
+  
+
   onChange = ev => {
     this.setState({ [ev.target.name]: ev.target.value });
   };
@@ -107,10 +109,13 @@ class FriendsMessages extends React.Component {
                 onChange={this.onChange}
                 >
                 <Option value="null">--</Option>
+                <Option value="Wife's Birthday">Wife's Birthday</Option>
+                <Option value="Husband's Birthday">Husband's Birthday</Option>
                 <Option value="Birthday">Birthday</Option>
                 <Option value="Anniversary">Anniversary</Option>
-                <Option value="Retirement">Retirement</Option>
-                <Option value="BabyShower">Baby Shower</Option>
+                <Option value="A Special Day">A Special Day</Option>
+                <Option value="Text Notification">Text Notification</Option>
+                <Option value="Baby Shower">Baby Shower</Option>
             </Select>
             </Label>
 
@@ -162,7 +167,14 @@ class FriendsMessages extends React.Component {
         ) : (
           
           <TextContainer>
-            <h4>{this.state.recipientName}</h4>
+            <h4>
+            {this.state.recipientName}
+             
+             <br></br>
+            {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)}
+            
+            </h4>
+            
             <Btn>
               <button onClick={() => this.setState({ updating: true })}>
               Edit
@@ -171,8 +183,8 @@ class FriendsMessages extends React.Component {
               Delete
             </button>
             </Btn>
-            {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)}
-            <p>{moment(this.state.sendDate).format('ddd MMM DD YYYY')}</p>
+            {/* {this.state.category.slice(0,1).toUpperCase(this.state.category) + this.state.category.slice(1, this.state.category.length)} */}
+            <p>{moment(this.state.sendDate).format('dddd, MMM DD YYYY')}</p>
             <p>Message: {this.state.message}</p>
             
           </TextContainer>
@@ -215,14 +227,15 @@ width: 320px;
 height: 320px;
 margin: 10px;
 border-radius: 10%;
+&:hover {
+  backGround: #532520;
+}
 `
 const TextContainer = styled.div`
 // border: 1px solid purple;
 font-size: 20px;
-padding-top: 1%;
 padding-right: 5%;
 padding-left: 5%;
-
 word-break: break-all;
 position: relative;
 text-align: center;
@@ -230,16 +243,16 @@ text-align: center;
 // padding-top: 40px;
 // margin: 10px;
 `
-
+ 
 const Btn = styled.form`
 display: flex;
 flex-direction: row;
 justify-content: space-around;
 width: 100%;
 button {
-  border-radius: 50%;
+  border-radius: 20%;
   background-color: #532516;
-  // opacity: .7;
+  opacity: 0.7;
   border-color: #975D41;
   color: #D4D4D4;
 
