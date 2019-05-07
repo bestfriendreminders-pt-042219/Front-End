@@ -60,12 +60,14 @@ class LogIn extends Component {
             onChange={this.handleChange}
           />
 
-          <button> Log In </button>
+          
+            <button> Log In </button>
+          
         </form>
 
         <p>
           Need to create an account?
-          <Link to="/Register">Sign Up</Link>
+          <Link to="/signup">Sign Up</Link>
         </p>
       </>
     );

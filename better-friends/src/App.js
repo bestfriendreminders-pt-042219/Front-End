@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, NavLink, Link } from 'react-router-dom';
 import Login from './components/Login';
-//import LogOut from './components/LogOut'
-import Signup from './components/Signup';
 import LogOut from './components/LogOut'
+import Signup from './components/Signup';
+//import LogOut from './components/LogOut'
 import Friends from './components/Friends';
 import FriendsContainer from './components/FriendsContainer';
 import styled from 'styled-components';
