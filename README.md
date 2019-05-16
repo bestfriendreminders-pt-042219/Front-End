@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ebccdbf2-70d3-4d3c-b99d-4b46f2c92699/deploy-status)](https://app.netlify.com/sites/friends-reminder/deploys)
 
 ## Front-End ##
 Front end for Better Friend Reminders
