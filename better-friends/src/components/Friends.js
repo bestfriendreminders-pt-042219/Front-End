@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 
-import FriendsContainer from './FriendsContainer';
+//import FriendsContainer from './FriendsContainer';
 
 class Friends extends React.Component {
     state = {

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form, Input, Button } from 'reactstrap';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
+
 
 
 
@@ -76,7 +78,9 @@ class Signup extends React.Component {
                             value={this.state.user.email}
                             required
                         />
+                        <Link to='/login'>
                         <Button type='submit'>Register</Button>
+                        </Link>
                     </Form>
             </div>
         )
